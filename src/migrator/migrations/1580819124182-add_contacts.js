@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
+const pLimit = require('p-limit');
 const { configService, cryptoService } = require('../services');
 const { userSchema } = require('../../app/users/schemas');
 const { contactSchema } = require('../../app/contacts/schemas');
+const limit = pLimit(1000);
 const userMongooseSchema = userSchema.useFactory(configService, cryptoService);
 const contactMongooseSchema = contactSchema.useFactory(configService);
 mongoose.models = {};
@@ -38,17 +40,19 @@ async function up() {
           lastName = faker.name.lastName();
         }
 
-        return this('contact')
-          .create({
-            userId: user.id,
-            firstName,
-            lastName,
-            emails,
-            phones,
-            avatarUrl: faker.image.avatar(),
-            notes: faker.lorem.sentences(),
-          })
-          .then(contact => user.contacts.push(contact));
+        return limit(() =>
+          this('contact')
+            .create({
+              userId: user.id,
+              firstName,
+              lastName,
+              emails,
+              phones,
+              avatarUrl: faker.image.avatar(),
+              notes: faker.lorem.sentences(),
+            })
+            .then(contact => user.contacts.push(contact)),
+        );
       });
 
     await Promise.all(contactPromises);
