@@ -14,7 +14,7 @@
     "start": "nest start",
     "start:dev": "npm run migrate && nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "npm run migrate:prod && node dist/src/main",
+    "start:prod": "node dist/src/main",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
