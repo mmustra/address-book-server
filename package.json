@@ -38,7 +38,7 @@
     "faker": "^4.1.0",
     "fold-to-ascii": "^5.0.0",
     "helmet": "^3.21.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "migrate-mongoose": "^4.0.0",
     "minimist": "^1.2.0",
     "mongoose": "^5.8.9",
