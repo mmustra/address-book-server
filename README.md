@@ -1,6 +1,6 @@
 # Address Book Server
 
-This is server part of Address Book project which allows you to manage contacts. [See it in action.](https://mmustra-address-book.herokuapp.com)
+This is server part of Address Book project which allows you to manage contacts.
 
 <p align="center">
   <img src="./resources/demo.png">
@@ -22,8 +22,6 @@ This is server part of Address Book project which allows you to manage contacts.
 - [Development](#development)
 
 ## About <a name="about"></a>
-
-TLDR: [Address Book DEMO](https://mmustra-address-book.herokuapp.com) | [Address Book Api](https://mmustra-address-book.herokuapp.com/api/documentation)
 
 Server that connects to MonogoDB exposing guarded api. Models are set using middlewares and hooks directly from Mongoose. Migrations and seed will prepare DB for intital state as well for future changes. Entire project has global config for easy control and documentation is provided by Swagger. Aside of that there are extra features like file logging and static file serve depending on need. For more info about frontend, check out [client part](https://github.com/mmustra/address-book-client) built with Angular 8 and Ant Design UI.
 
